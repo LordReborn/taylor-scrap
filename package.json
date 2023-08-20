@@ -14,5 +14,8 @@
     "axios": "1.4.0",
     "dotenv": "16.3.1",
     "puppeteer": "21.1.0"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.7"
   }
 }
