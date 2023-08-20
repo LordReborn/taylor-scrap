@@ -3,7 +3,6 @@ import "dotenv/config";
 import { log } from "./utils.js";
 import { sendMessages } from "./services.js";
 import { settings } from "./settings.js";
-import chromium from "chrome-aws-lambda";
 
 const check = async ({ browser, test }) => {
   const page = await browser.newPage();
@@ -38,7 +37,7 @@ const check = async ({ browser, test }) => {
 (() => {
   log("Started");
   let count = 0;
-  chromium.puppeteer
+  puppeteer
     .launch({ headless: "new", args: ["--no-sandbox"] })
     .then((browser) => {
       setInterval(() => {
