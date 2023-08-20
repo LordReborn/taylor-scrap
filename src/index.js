@@ -37,11 +37,13 @@ const check = async ({ browser, test }) => {
 (() => {
   log("Started");
   let count = 0;
-  puppeteer.launch({ headless: "new" }).then((browser) => {
-    setInterval(() => {
-      log(`Interval ${(count += 1)}`);
-      check({ browser, test: true });
-      check({ browser, test: false });
-    }, settings.intervalTime);
-  });
+  puppeteer
+    .launch({ headless: "new", args: ["--no-sandbox"] })
+    .then((browser) => {
+      setInterval(() => {
+        log(`Interval ${(count += 1)}`);
+        check({ browser, test: true });
+        check({ browser, test: false });
+      }, settings.intervalTime);
+    });
 })();
