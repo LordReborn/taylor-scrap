@@ -1,7 +1,7 @@
 import axios from "axios";
 import { settings } from "./settings.js";
 
-export const sendMessages = ({ test }) =>
+export const sendMessages = () =>
   settings.phones.map((phone) =>
     axios({
       headers: { Authorization: `Bearer ${settings.apiToken}` },
@@ -12,9 +12,9 @@ export const sendMessages = ({ test }) =>
         to: phone,
         type: "template",
         template: {
-          name: test ? "hello_world" : "hay_entradas_disponibles",
+          name: "hay_entradas_disponibles",
           language: {
-            code: test ? "en_US" : "es_AR",
+            code: "es_AR",
           },
         },
       },

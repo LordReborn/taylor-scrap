@@ -1,3 +1,3 @@
-export const log = (msg, test) => {
-  console.log(`${new Date().toISOString()}: ${msg} ${test ? "(Prueba)" : ""}`);
+export const log = (msg) => {
+  console.log(`${new Date().toISOString()}: ${msg}`);
 };
